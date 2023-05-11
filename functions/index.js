@@ -3,8 +3,9 @@ const bodyParser = require('body-parser')
 const cors = require('cors');
 const mongoose = require('mongoose')
 
-const productRoute = require('./routes/product.route')
-const orderRoute = require('./routes/order.route')
+const productRoute = require('../routes/product.route')
+const orderRoute = require('../routes/order.route');
+const ServerlessHttp = require('serverless-http');
 const router = express.Router();
 const app = express()
 const port = process.env.PORT || 3001;
@@ -29,13 +30,14 @@ app.use('/orders', orderRoute)
 
 
 
-app.get('/', (req, res) => {
-    res.status(200).json({
-        message: 'Respuesta de la api'
-    })
+router.get('/', (req, res) => {
+    res.send('app esta corriendo...');
 })
 
 app.listen(port, () => {
     console.log(`app listening to port ${port}...`)
 })
 
+app.use ('/.netlify/functions/api', router);
+
+module.exports.handler = Serverless(app);
