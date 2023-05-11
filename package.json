@@ -5,14 +5,14 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon index"
+        "start": "node index"
     },
     "keywords": [
         "e-commerce",
         "mean",
         "app"
     ],
-    "author": "Tazbinur Rahaman",
+    "author": "Gaston Paulich",
     "license": "ISC",
     "dependencies": {
         "body-parser": "^1.19.0",
