@@ -2,9 +2,10 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors');
 const mongoose = require('mongoose')
+const serverless = require('serverless-http');
 const productRoute = require('./routes/product.route')
 const orderRoute = require('./routes/order.route')
-
+const router = express.Router();
 const app = express()
 const port = 3001
 app.use(cors())
@@ -24,6 +25,9 @@ mongoose.connection.on('error', function(err) {
 // routes
 app.use('/products', productRoute)
 app.use('/orders', orderRoute)
+app.use('/.netlify/functions/api', productRoute)
+
+
 
 app.get('/', (req, res) => {
     res.status(200).json({
@@ -34,3 +38,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`app listening to port ${port}...`)
 })
+
+module.exports.handler = serverless(app);
