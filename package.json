@@ -4,8 +4,8 @@
     "description": "Angular e-commerce website backed rest api",
     "main": "index.js",
     "scripts": {
-        "start": "node dist/index.js",
-        "build": "npm install"
+        "start": "node dist/index.js"
+        
     },
     "keywords": [
         "e-commerce",
