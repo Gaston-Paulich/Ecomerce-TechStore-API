@@ -10,7 +10,7 @@ const router = express.Router();
 const app = express()
 const port = process.env.PORT || 3001;
 app.use(cors({
-    origin: 'https://mercadotechtg.netlify.app/'
+    origin: 'https://ecomerce-techstore-api-gaston-paulich.onrender.com'
 }))
 app.use(bodyParser.json())
 
