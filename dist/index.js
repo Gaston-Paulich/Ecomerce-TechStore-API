@@ -40,4 +40,4 @@ app.listen(port, () => {
 
 app.use ('/.netlify/functions/api', router);
 
-module.exports.handler = Serverless(app);
+module.exports.handler = ServerlessHttp(app);
