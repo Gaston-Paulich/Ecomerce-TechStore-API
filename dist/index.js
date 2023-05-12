@@ -9,7 +9,9 @@ const ServerlessHttp = require('serverless-http');
 const router = express.Router();
 const app = express()
 const port = process.env.PORT || 3001;
-app.use(cors())
+app.use(cors({
+    origin: 'https://mercadotechtg.netlify.app/'
+}))
 app.use(bodyParser.json())
 
 // databse connection
@@ -38,6 +40,3 @@ app.listen(port, () => {
     console.log(`app listening to port ${port}...`)
 })
 
-app.use ('/.netlify/functions/api', router);
-
-module.exports.handler = ServerlessHttp(app);
