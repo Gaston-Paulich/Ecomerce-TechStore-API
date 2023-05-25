@@ -1,18 +1,21 @@
-const express = require('express')
-const bodyParser = require('body-parser')
+const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const compression = require('compression');
 
-const productRoute = require('../routes/product.route')
+const productRoute = require('../routes/product.route');
 const orderRoute = require('../routes/order.route');
-const ServerlessHttp = require('serverless-http');
+
 const router = express.Router();
-const app = express()
+const app = express();
 const port = process.env.PORT || 3001;
 app.use(cors({
     origin: '*'
 }))
 app.use(bodyParser.json())
+app.use(compression());
+
 
 // databse connection
 mongoose.connect('mongodb+srv://pepito:SmPPUBBIT3MnVJ5v@cluster0.c84fykq.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
