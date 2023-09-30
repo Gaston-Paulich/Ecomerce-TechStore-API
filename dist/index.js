@@ -36,7 +36,7 @@ app.use('/orders', orderRoute)
 
 
 router.get('/', (req, res) => {
-    res.send('app esta corriendo...');
+    res.send('app esta corriendo..');
 })
 
 app.listen(port, () => {
